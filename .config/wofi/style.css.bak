@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Wofi — Gruvbox TUI theme
+   One unified bordered panel; search integrated at top; cursor-list below
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Gruvbox refs ───────────────────────────────────────────────────────────
+   bg0_h  #1d2021   bg0  #282828   bg1  #3c3836   bg2  #504945
+   fg1    #ebdbb2   fg2  #d5c4a1   gray #928374   bg4  #7c6f64
+   yellow #fabd2f   green #b8bb26  aqua #8ec07c
+   ─────────────────────────────────────────────────────────────────────────*/
+
+/* ── 1. Window: just a dark canvas, no visible border here ─────────────── */
+window {
+    background-color:  #1d2021;
+    font-family:       "JetBrains Mono", "Iosevka", "Fira Mono", monospace;
+    font-size:         14px;
+    color:             #ebdbb2;
+    border-radius:     0;
+}
+
+/* ── 2. Outer box: the inset gap (dark gutter visible around the panel) ─── */
+#outer-box {
+    background-color:  #1d2021;
+    padding:           0;
+    margin:            0;
+}
+
+/* ── 3. Inner box: THIS is the TUI panel — border lives here ───────────── */
+#inner-box {
+    background-color:  #282828;
+    border:            1px solid #928374;   /* the TUI box line              */
+    margin:            12px;                /* inset distance from window edge*/
+    padding:           10px 12px;
+}
+
+/* ── 4. Search bar — flat, underline only, feels like a TUI prompt ──────── */
+#input {
+    background-color:  transparent;        /* same bg as the panel           */
+    color:             #ebdbb2;
+    border:            none;
+    border-bottom:     1px solid #7c6f64;  /* single underline = TUI field   */
+    border-radius:     0;
+    padding:           4px 4px 4px 0;
+    margin:            0 0 10px 0;         /* gap between search and list     */
+    font-family:       inherit;
+    font-size:         inherit;
+    caret-color:       #fabd2f;
+    outline:           none;
+    box-shadow:        none;
+}
+
+#input:focus {
+    border-bottom-color: #fabd2f;          /* yellow underline when active   */
+    color:               #fabd2f;
+}
+
+/* The little magnifier icon wofi injects — dim it to blend in */
+#input image {
+    color: #665c54;
+    margin-right: 6px;
+}
+
+/* ── 5. Scroll container ────────────────────────────────────────────────── */
+#scroll {
+    background-color:  transparent;
+    padding:           0;
+    margin:            0;
+}
+
+/* ── 6. Entry rows ──────────────────────────────────────────────────────── */
+#entry {
+    background-color:  transparent;
+    border-radius:     0;
+    padding:           3px 0 3px 4px;
+    margin:            0;
+    border:            none;
+    /* prefix via left padding — selected state adds the > via color shift  */
+}
+
+/* Unselected label */
+#entry #text {
+    color:             #928374;            /* muted gray for non-active items */
+    font-family:       inherit;
+    padding-left:      18px;              /* indent — space for the "cursor"  */
+}
+
+/* Selected / focused row */
+#entry:selected,
+#entry:focus {
+    background-color:  transparent;       /* no block highlight — pure TUI   */
+}
+
+#entry:selected #text,
+#entry:focus #text {
+    color:             #fabd2f;           /* bright yellow = active cursor    */
+}

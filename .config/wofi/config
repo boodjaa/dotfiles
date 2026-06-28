@@ -1,0 +1,10 @@
+width=480
+height=420
+location=center
+show=drun
+prompt=Search
+allow_images=false
+no_actions=true
+insensitive=true
+gtk_dark=true
+hide_scroll=true

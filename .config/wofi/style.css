@@ -1,0 +1,90 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Wofi — Gruvbox TUI theme
+   Single border on #outer-box (wraps input + list) — reliable bottom edge
+   ═══════════════════════════════════════════════════════════════════════════
+   Gruvbox refs:
+     bg0_h  #1d2021   bg0  #282828   bg1  #3c3836   bg2  #504945
+     fg1    #ebdbb2   fg2  #d5c4a1   gray #928374   bg4  #7c6f64
+     yellow #fabd2f   green #b8bb26  aqua #8ec07c
+*/
+
+/* ── Window: dark gutter around the panel ───────────────────────────────── */
+window {
+    background-color:  #282828;
+    font-family:       "JetBrains Mono", "Iosevka", "Fira Mono", monospace;
+    font-size:         14px;
+    color:             #ebdbb2;
+    border-radius:     0;
+}
+
+/* ── Outer-box: THE box — border lives here, wraps input + list ─────────── */
+#outer-box {
+    background-color:  #282828;
+    border:            2px solid #928374;
+    margin:            12px;            /* inset from window edge            */
+    padding:           0;
+}
+
+/* ── Search bar: no border of its own, just a divider underneath ─────────── */
+#input {
+    background-color:  transparent;
+    color:             #bdae93;
+    border-radius:     0px;
+    border-width:      2px;
+    border-color:      #7c6f64;
+    margin:            10 10px;
+    padding:           4 6px;
+    font-family:       JetBrains-Mono-Regular;
+    font-size:         inherit;
+    outline:           none;
+    box-shadow:        none;
+}
+
+#input:focus {
+    border-color: #fbf1c7;
+    color: #fbf1c7;
+}
+
+#input image {
+    -gtk-icon-transform: scale(0);
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+/* ── Inner-box: no border, just holds the scroll area ───────────────────── */
+#inner-box {
+    background-color:  transparent;
+    border:            none;
+    margin:            0;
+    padding:           4px 0;
+}
+
+/* ── Entry rows ──────────────────────────────────────────────────────────── */
+#entry {
+    background-color:  transparent;
+    border-radius:     0;
+    padding:           0px 10px;
+    margin:            0;
+    border:            none;
+}
+
+#entry #text {
+    color:        #d5c4a1;
+    font-family:  inherit;
+    padding-left: 16px;
+    margin: 0 0px;
+}
+
+#entry:selected,
+#entry:focus {
+    background-color:  #fbf1c7;
+    padding: 0 10px;
+    margin: 0 10px;
+}
+
+#entry:selected #text,
+#entry:focus #text {
+    color:            #3c3836;
+    padding-left: 6px;
+}
